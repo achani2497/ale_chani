@@ -2,10 +2,12 @@
   <div class="content">
     <div class="welcome">
       <img src="@/assets/images/fotoDePerfil2.png" alt="miImagen" class="miImagen">
-      <h1>{{saludoDeBienvenida}} , muchas gracias por visitar mi página :)</h1>
+      <h1>{{saludoDeBienvenida}}</h1>
+      <h2>Gracias por visitar mi página :)</h2>
     </div>
     <div class="options">
       <ul>
+        <!-- <li><button @click="aVer()">ASD</button></li> -->
         <li><router-link to="/habilidades">Habilidades</router-link></li>
         <li><router-link to="/proyectos">Mis Proyectos</router-link></li>
         <li><router-link to="/contratame">Contratame!</router-link></li>
@@ -99,13 +101,18 @@ export default {
   name: 'Home',
   components: {
   },
+  methods: {
+    aVer: function(){
+     this.$swal('Titulo', 'Texto', 'success')
+    }
+  },
   computed:{
     saludoDeBienvenida: function(){
       let date = new Date()
       let hours = date.getHours()
 
       if(20 < hours < 6){
-        return 'Buenas noches! '
+        return 'Buenas noches!'
       } else if(6 <= hours < 13){
           return 'Buen día! '
       } else {

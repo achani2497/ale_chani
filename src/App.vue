@@ -3,21 +3,21 @@
     <Menu v-if="this.$route.name !=='Home' "></Menu>
     <div class="container">
       <router-view/>
-      <div class="area" >
-        <ul class="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-        </ul>
-    </div >
     </div>
+    <div class="area" >
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div >
   </div>
 </template>
 
@@ -58,12 +58,13 @@ body {
 }
 
 .area{
+  position: absolute;
+  top: 0;
   /* background: #4e54c8;   */
   /* background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);   */
   width: 100vw;
   height:100vh;
   left: 0;
-  position: absolute;
   z-index: -1;
 }
 
@@ -84,7 +85,7 @@ body {
   height: 20px;
   background: rgba(255, 255, 255, 0.4);
   animation: animate 25s linear infinite;
-  bottom: -150px;
+  bottom: 0;
 }
 
 .circles li:nth-child(1){
