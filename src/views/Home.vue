@@ -16,10 +16,9 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .content{
     display: flex;
-    /* background: lightskyblue; */
     align-items: center;
   }
 

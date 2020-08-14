@@ -5,6 +5,7 @@
         </div>
         <ul>
             <li v-for="(option, index) in options" :key="index" @click="toggleClass(index)">
+                <div class="icon" :class="option.icon"></div>
                 <router-link :to="option.path">{{option.name}}</router-link>
             </li>
         </ul>
@@ -40,15 +41,15 @@
     nav ul li a{
         text-decoration: none;
     }
-    .router-link-exact-active::after{
+    /* .router-link-exact-active::after{
         content: '';
         position: absolute;
         bottom: 1em;
         border: 1px solid black;
         animation:fadeIn .6s ease;
         width: 100%;
-    }
-    @media only screen and (max-width: 678px){
+    } */
+    @media screen and (max-width: 678px){
         .titulo{
             display: none;
         }
@@ -57,14 +58,48 @@
             width: 100%;
             position: absolute;
             bottom: 0;
-            background: lightblue;
+            padding: 0;
         }
         nav ul{
             display: flex;
-            flex-direction: row;
             width: 100%;
+            flex-direction: row;
             justify-content: space-around;
             font-size: .9em;
+        }
+        nav ul li{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background: rgba(0,0,0,.3);
+        }
+
+        nav ul li .icon{
+            height: 35px;
+            width: 35px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        nav ul li:last-child .icon{
+            stroke: white;
+        }
+        nav ul li a{
+            color: white;
+        }
+        .home{
+            background: url('../assets/icons/Home.svg');
+        }
+        .proyectos{
+            background: url('../assets/icons/Proyectos.svg');
+        }
+        .habilidades{
+            background: url('../assets/icons/habilidades.svg');
+        }
+        .contratame{
+            background: url('../assets/icons/Contratame.svg');
         }
     }
     @keyframes fadeIn{
@@ -84,22 +119,26 @@ export default {
                 {
                     name:'Home',
                     path:'/',
-                    active: true
+                    active: true,
+                    icon: 'home'
                 },
                 {
                     name:'Proyectos',
                     path:'/proyectos',
-                    active: false
+                    active: false,
+                    icon: 'proyectos'
                 },
                 {
                     name:'Skills',
                     path:'/habilidades',
-                    active: false
+                    active: false,
+                    icon:'habilidades'
                 },
                 {
-                    name:'Contactame',
-                    path:'/contacto',
-                    active: false
+                    name:'Contratame!',
+                    path:'/contratame',
+                    active: false,
+                    icon:'contratame'
                 },
             ]
         }
