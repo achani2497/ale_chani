@@ -73,21 +73,23 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            background: rgba(0,0,0,.3);
+            background: rgba(0,0,0,.5);
+            border-right: 1px solid rgba(0,0,0,.2);
         }
 
         nav ul li .icon{
-            height: 35px;
-            width: 35px;
+            height: 30px;
+            width: 30px;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
         }
-        nav ul li:last-child .icon{
-            stroke: white;
+        nav ul li:last-child{
+            background: rgba(0,0,0,.9);
         }
         nav ul li a{
             color: white;
+            text-shadow: 0px 0px 3px rgba(0,0,0,.9);
         }
         .home{
             background: url('../assets/icons/Home.svg');
@@ -129,7 +131,7 @@ export default {
                     icon: 'proyectos'
                 },
                 {
-                    name:'Skills',
+                    name:'Habilidades',
                     path:'/habilidades',
                     active: false,
                     icon:'habilidades'
