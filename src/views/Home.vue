@@ -11,7 +11,6 @@
     <div class="options">
       <ul>
         <!-- <li><button @click="aVer()">ASD</button></li> -->
-        <li><router-link to="/habilidades">Sobre mi 🤔</router-link></li>
         <li><router-link to="/habilidades">Habilidades 🧠</router-link></li>
         <li><router-link to="/proyectos">Mis Proyectos 💼</router-link></li>
         <li><router-link to="/contratame">Contratame! 📩</router-link></li>

@@ -5,7 +5,7 @@
         </div>
         <ul>
             <li v-for="(option, index) in options" :key="index" @click="toggleClass(index)">
-                <div class="icon" :class="option.icon"></div>
+                <div class="icon">{{option.icon}}</div>
                 <router-link :to="option.path">{{option.name}}</router-link>
             </li>
         </ul>
@@ -80,9 +80,8 @@
         nav ul li .icon{
             height: 30px;
             width: 30px;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+            text-align: center;
+            font-size: 1.3em;
         }
         nav ul li:last-child{
             background: rgba(0,0,0,.9);
@@ -90,18 +89,6 @@
         nav ul li a{
             color: white;
             text-shadow: 0px 0px 3px rgba(0,0,0,.9);
-        }
-        .home{
-            background: url('../assets/icons/Home.svg');
-        }
-        .proyectos{
-            background: url('../assets/icons/Proyectos.svg');
-        }
-        .habilidades{
-            background: url('../assets/icons/habilidades.svg');
-        }
-        .contratame{
-            background: url('../assets/icons/Contratame.svg');
         }
     }
     @keyframes fadeIn{
@@ -122,25 +109,25 @@ export default {
                     name:'Home',
                     path:'/',
                     active: true,
-                    icon: 'home'
+                    icon: '🏠'
                 },
                 {
                     name:'Proyectos',
                     path:'/proyectos',
                     active: false,
-                    icon: 'proyectos'
+                    icon: '💼'
                 },
                 {
                     name:'Habilidades',
                     path:'/habilidades',
                     active: false,
-                    icon:'habilidades'
+                    icon:'🧠'
                 },
                 {
                     name:'Contratame!',
                     path:'/contratame',
                     active: false,
-                    icon:'contratame'
+                    icon:'📩'
                 },
             ]
         }
