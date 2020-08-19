@@ -2,10 +2,11 @@
   <div class="content">
     <div class="welcome">
       <img src="@/assets/images/fotoDePerfil2.png" alt="miImagen" class="miImagen">
-      <h1>{{saludoDeBievenida}}</h1>
-      <h2>Soy Alejandro Chañi, un WebDev apasionado por diseñar, desarrollar y participar en las decisiones de nuevos productos. 👨🏾‍💻💡 </h2>
-      <!-- <br> -->
-      <h2>Me gusta mucho aprender nuevas cosas por mi cuenta para despues aplicarlas en nuevos proyectos!</h2>
+      <div class="mensajes">
+        <h1>{{saludoDeBievenida}}</h1>
+        <h2>Soy Alejandro Chañi, un WebDev apasionado por diseñar, desarrollar y participar en las decisiones de nuevos productos. 👨🏾‍💻💡 </h2>
+        <h2>Me gusta mucho aprender nuevas cosas por mi cuenta para despues aplicarlas en nuevos proyectos!</h2>
+      </div>
     </div>
     <div class="options">
       <ul>
@@ -28,11 +29,15 @@
   }
 
   @media (max-width: 414px){
+    h1{
+      letter-spacing: 3px;
+    }
     .miImagen{
       width: 200px;
       height: 200px;
       border-radius: 50%;
       box-shadow: 0 5px 5px 2px rgba(0,0,0,.5);
+      animation: slideDown 1.3s
     }
     .content{
       display: flex;
@@ -48,6 +53,9 @@
       align-items: center;
       text-align: center;
       height: 80%;
+    }
+    .mensajes{
+      animation: fadeIn 2s;
     }
     .options{
       width: 100%;
@@ -126,6 +134,22 @@
     }
     100%{
       transform: translateX(0px);
+    }
+  }
+  @keyframes slideDown {
+    0%{
+      transform: translateY(-1000px);
+    }
+    100%{
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn{
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
     }
   }
 </style>
