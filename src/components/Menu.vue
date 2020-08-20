@@ -56,9 +56,11 @@
         nav {
             display: flex;
             width: 100%;
-            position: absolute;
+            position: fixed;
             bottom: 0;
             padding: 0;
+            overflow: hidden;
+            z-index: 2;
         }
         nav ul{
             display: flex;
@@ -112,16 +114,16 @@ export default {
                     icon: '🏠'
                 },
                 {
-                    name:'Proyectos',
-                    path:'/proyectos',
-                    active: false,
-                    icon: '💼'
-                },
-                {
                     name:'Habilidades',
                     path:'/habilidades',
                     active: false,
                     icon:'🧠'
+                },
+                {
+                    name:'Proyectos',
+                    path:'/proyectos',
+                    active: false,
+                    icon: '💼'
                 },
                 {
                     name:'Contratame!',
