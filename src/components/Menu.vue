@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav :class="{'nav-hidden':!showNav}">
         <div class="titulo">
             <h1>Titulo</h1>
         </div>
@@ -21,6 +21,10 @@
         align-content: center;
         height: 3em;
         font-size: 1.5em;
+        transition: all .6s;
+    }
+    .nav-hidden{
+        opacity: 0;
     }
     nav ul{
         width: 60%;
@@ -54,7 +58,7 @@
             display: none;
         }
         nav {
-            display: flex;
+            display: inline-block;
             width: 100%;
             position: fixed;
             bottom: 0;
@@ -65,6 +69,7 @@
         nav ul{
             display: flex;
             width: 100%;
+            height: 100%;
             flex-direction: row;
             justify-content: space-around;
             font-size: .9em;
@@ -106,6 +111,8 @@
 export default {
     data: function(){
         return {
+            showNav:true,
+            lastScrollPosition:0,
             options:[
                 {
                     name:'Home',
@@ -138,7 +145,18 @@ export default {
         toggleClass: function(index){
             this.options.forEach(option => option.active=false) 
             this.options[index].active = !this.options[index].active
+        },
+        onScroll: function(){
+            const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScrollPosition < 0) {
+                return
+            }
+            this.showNav = currentScrollPosition < this.lastScrollPosition
+            this.lastScrollPosition = currentScrollPosition
         }
+    },
+    mounted () {
+        window.addEventListener('scroll', this.onScroll)
     }
 }
 </script>

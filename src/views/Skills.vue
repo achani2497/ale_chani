@@ -7,37 +7,70 @@
     <ul class="habilidades">
       <li v-for="(habilidad, index) in habilidades" :key="index">
         <ul>
-          <li>{{habilidad.nombre}} <div class="icon" :style="{'background-image': 'url('+require('@/assets/icons/'+habilidad.icon+'.svg')+')'}"></div> </li>
-          <li>Nivel: {{habilidad.nivel}}</li>
+          <li><div class="icon" :style="{'background-image': 'url('+require('@/assets/icons/'+habilidad.icon+'.svg')+')'}"></div> <span>{{habilidad.nivel}}</span> </li>
         </ul>
       </li>
     </ul>
   </div>
 </template>
-<style>
-img{
-  height: 250px;
-  width: 250px;
-}
-.init-image{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-ul > li > ul > li{
-  display: flex;
-  flex-direction: row;
-}
-li{
-  list-style: none;
-}
-.icon{
-  height: 35px;
-  width: 35px;
-  background-size:contain;
-  background-repeat: no-repeat;
-}
+<style scoped>
+@media screen and (max-width: 678px){
+  img{
+    /* margin-top: -50px; */
+    height: 250px;
+    width: 250px;
+  }
+  .init-image{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
+  li{
+    list-style: none;
+  }
+  h1{
+    margin-top: -40px;
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, .9);
+    letter-spacing: 4px;
+  }
+  .habilidades > li > ul{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+    background: rgba(255,255,255, .7);
+    padding: 10px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, .5);
+    border-radius: 15px;
+  }
+
+  .habilidades > li > ul > li{
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .habilidades > li > ul > li > div{
+    width: 30%;
+  }
+  .habilidades > li > ul > li > span{
+    font-size: 2rem;
+    width: 70%;
+    height: 3rem;
+  }
+
+  .icon{
+    height: 35px;
+    width: 35px;
+    background-size:contain;
+    background-repeat: no-repeat;
+  }
+}
 </style>
 <script>
 
